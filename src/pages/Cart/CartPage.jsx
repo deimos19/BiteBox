@@ -35,7 +35,7 @@ const CartPage = () => {
     localStorage.removeItem("cartItems");
     setCartItems([]);
     setShowCheckout(false);
-    navigate("/");  // Redirect to homepage after placing order
+    navigate("/");
   };
 
   const cartTotal = cartItems.reduce(
@@ -126,9 +126,8 @@ const CartPage = () => {
           </div>
         )}
 
-        {/* Button Toggle Section */}
+        
         <div className="flex justify-end gap-3 mb-5">
-          {/* View Order Summary Button */}
           <button
             className={`btn bg-green-600 text-white mt-4 ${showCheckout ? "hidden" : "block"}`}
             onClick={handleCheckout}
@@ -136,7 +135,7 @@ const CartPage = () => {
             View Order Summary
           </button>
 
-          {/* Place Order Button */}
+         
           <button
             className={`btn bg-green-600 text-white mt-4 ${showCheckout ? "block" : "hidden"}`}
             onClick={handlePlaceOrder}

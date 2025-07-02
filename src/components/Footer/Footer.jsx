@@ -1,12 +1,12 @@
 import React from 'react';
-import { assets } from '../../assets/frontend_assets/assets'; // Adjust path based on your structure
+import { assets } from '../../assets/frontend_assets/assets'; 
 
 const Footer = () => {
   return (
     <div className="container mx-auto lg:px-40 bg-gray-900 text-gray-300">
         <footer className=" py-8">
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-        {/* Company Info */}
+        
         <div>
           <h3 className="text-xl font-bold mb-2">BiteBox</h3>
           <p>Your favorite meals delivered fresh and fast.</p>
@@ -17,7 +17,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Quick Links */}
+        
         <div>
           <h3 className="text-xl font-bold mb-2">Quick Links</h3>
           <ul className="space-y-2">
@@ -28,7 +28,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Download App */}
+        
         <div>
           <h3 className="text-xl font-bold mb-2">Get Our App</h3>
           <p>Order faster with our mobile app</p>
@@ -39,7 +39,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom Copyright */}
+      
       <div className="mt-8 text-center text-gray-500 text-sm">
         © {new Date().getFullYear()} BiteBox. All rights reserved.
       </div>

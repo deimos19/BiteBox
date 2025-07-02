@@ -28,7 +28,6 @@ const Signup = () => {
 
     console.log('User Details:', userDetails);
 
-    // Save to localStorage (for frontend simulation)
     localStorage.setItem('userLoginDetails', JSON.stringify(userDetails));
 
     alert('User registered successfully!');
@@ -37,7 +36,6 @@ const Signup = () => {
     <div className="container mx-auto lg:px-40 px-4 py-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
 
-        {/* Left Side - Welcome Image and Text */}
         <div className="text-center">
           <h2 className="text-3xl font-bold mb-4 text-yellow-500">Join BiteBox Today!</h2>
           <p className="text-gray-100 mb-4">
@@ -50,7 +48,6 @@ const Signup = () => {
           />
         </div>
 
-        {/* Right Side - Signup Form */}
         <div>
           <form onSubmit={handleSubmit}>
             <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-full border p-6 shadow-md">

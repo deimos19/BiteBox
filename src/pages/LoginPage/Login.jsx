@@ -14,11 +14,11 @@ const Login = () => {
 
   if (savedUser) {
     if (savedUser.email === email && savedUser.password === password) {
-      // ✅ Create a Login Session
+      
       localStorage.setItem('loggedInUser', JSON.stringify(savedUser));
 
       alert('Login successful!');
-      navigate('/');  // Go to homepage
+      navigate('/');
     } else {
       alert('Invalid email or password');
     }

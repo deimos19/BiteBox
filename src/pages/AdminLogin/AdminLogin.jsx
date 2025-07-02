@@ -15,9 +15,10 @@ const AdminLogin = () => {
     if (savedAdmin) {
       if (savedAdmin.email === email && savedAdmin.password === password) {
         alert('Admin login successful!');
-        // Save logged-in admin session
+        
+        
         localStorage.setItem('loggedInAdmin', JSON.stringify(savedAdmin));
-        navigate('/admin');  // Redirect to your admin dashboard page (change route as needed)
+        navigate('/admin');  
       } else {
         alert('Invalid email or password');
       }
@@ -30,7 +31,7 @@ const AdminLogin = () => {
     <div className="container mx-auto lg:px-40 px-4 py-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
 
-        {/* Left Side - About Admin Panel */}
+       
         <div className="text-left">
           <h2 className="text-3xl font-bold mb-4 text-yellow-500">BiteBox Business Login</h2>
           <p className="text-gray-100 mb-4">
@@ -44,7 +45,7 @@ const AdminLogin = () => {
           />
         </div>
 
-        {/* Right Side - Admin Login Form */}
+        
         <div>
           <form onSubmit={handleLogin}>
             <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-full border p-6 shadow-md">

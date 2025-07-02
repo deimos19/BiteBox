@@ -41,7 +41,7 @@ const Header = () => {
         </div>
         <div className="navbar-end gap-5">
             <a href='/cart' className="btn btn-square btn-ghost hover:bg-transparent border-none hover:border-none focus:border-none active:border-none hover:shadow-none"><i className="bi bi-cart-dash"></i>Cart</a> 
-            {/* ✅ Conditionally show Login or Logout */}
+            
           {user ? (
             <div className="dropdown dropdown-end">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">

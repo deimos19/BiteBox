@@ -18,12 +18,10 @@ const FoodItems = ({ selectedCategory }) => {
 
   return (
     <div className="container mx-auto lg:px-40 px-4 py-6">
-      {/* Heading */}
       <h2 className="text-3xl font-bold mb-4 text-center md:text-left" id='Menu'>
         Explore Our Delicious Menu
       </h2>
 
-      {/* Search Input */}
       <div className="mb-6 flex items-center">
         <i className="bi bi-search mr-2"></i>
         <input
@@ -35,7 +33,6 @@ const FoodItems = ({ selectedCategory }) => {
         />
       </div>
 
-      {/* Food Item Grid */}
       <div className="grid grid-cols-1 place-items-center md:grid-cols-3 lg:grid-cols-4 gap-4">
         {filteredFoods.length > 0 ? (
           filteredFoods.map((item, index) => (

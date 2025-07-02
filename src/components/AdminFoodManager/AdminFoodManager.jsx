@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { food_list } from '../../assets/frontend_assets/assets'; // Assuming your food_list is here
+import { food_list } from '../../assets/frontend_assets/assets';
 import AdminFoodCard from './AdminFoodCard';
 
 const AdminFoodManager = () => {
@@ -23,7 +23,7 @@ const AdminFoodManager = () => {
     const newFoodItem = {
       ...newFood,
       price: parseFloat(newFood.price),
-      image: newFood.image || 'https://via.placeholder.com/150',  // Dummy image if not provided
+      image: newFood.image || 'https://via.placeholder.com/150',
       _id: Date.now().toString()
     };
     setFoods([newFoodItem, ...foods]);
@@ -100,7 +100,7 @@ const AdminFoodManager = () => {
       </div>
 
 
-      {/* Food Items List */}
+      
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {foods.map((item, index) => (
           <AdminFoodCard key={index} item={item} index={index} handleDelete={handleDelete} />
