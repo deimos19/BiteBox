@@ -18,7 +18,7 @@ const Hero = () => {
             <button className="btn btn-warning"><i class="bi bi-building"></i>Explore Menu</button>
             </div>
         </div>
-    </div>
+        </div>
     </div>
     </>
 

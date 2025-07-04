@@ -1,5 +1,6 @@
 import React from 'react'
 import BiteBox from "../../assets/hero-images/BiteBoxBusiness.png"
+import { Link } from 'react-router-dom'
 
 const AdminHeader = () => {
   return (
@@ -25,18 +26,18 @@ const AdminHeader = () => {
       </ul>
     </div>
     <img src={BiteBox} className='w-15 mr-3' alt="logo" />
-    <a className="font-bold text-blue-400 text-xl">BiteBox Business</a>
+    <p className="font-bold text-blue-400 text-xl">BiteBox Business</p>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-      <li><a href='/admin'><i class="bi bi-house"></i>Home</a></li>
-      <li><a><i class="bi bi-tools"></i>Manage</a></li>
-      <li><a><i class="bi bi-telephone"></i>Support</a></li>
+      <li><Link to={'/admin'}><i class="bi bi-house"></i>Home</Link></li>
+      <li><Link><i class="bi bi-tools"></i>Manage</Link></li>
+      <li><Link><i class="bi bi-telephone"></i>Support</Link></li>
     </ul>
   </div>
   <div className="navbar-end">
     <div className="mx-5 text-center">
-      <a href="/admin/Orders" className='btn btn-ghost'><i class="bi bi-view-list"></i>View Orders</a>
+      <Link to={'/admin/Orders'} className='btn btn-ghost'><i class="bi bi-view-list"></i>View Orders</Link>
     </div>
     <div className="dropdown dropdown-end">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
@@ -50,13 +51,13 @@ const AdminHeader = () => {
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         <li>
-          <a className="justify-between">
+          <Link className="justify-between">
             Profile
             <span className="badge">New</span>
-          </a>
+          </Link>
         </li>
         <li><a>Settings</a></li>
-        <li><a href='/'>Logout</a></li>
+        <li><Link to={'/'}>Logout</Link></li>
       </ul>
     </div>
   </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { menu_list } from '../../assets/frontend_assets/assets'
+import { Link } from 'react-router-dom';
 
 const Categories = ({ handleCategoryClick }) => {
   return (
@@ -7,9 +8,9 @@ const Categories = ({ handleCategoryClick }) => {
       <div className="px-4 py-6">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-3xl font-bold">What are you craving for?</h2>
-          <a href="#" className="flex items-center">
+          <Link href="#" className="flex items-center">
             <i className="bi bi-search mx-2"></i> Search Food
-          </a>
+          </Link>
         </div>
 
         <div className="flex lg:flex-wrap overflow-x-auto lg:overflow-visible gap-4 no-scrollbar">

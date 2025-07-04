@@ -1,5 +1,6 @@
 import React from 'react'
 import BiteBox from "../../assets/hero-images/BiteBoxBusiness.png"
+import { Link } from 'react-router-dom'
 
 const AdminHero = () => {
   return (
@@ -18,7 +19,7 @@ const AdminHero = () => {
             </p>
             <div className='flex gap-4'>
             <button className="btn btn-primary"><i class="bi bi-tools"></i>Manage</button>
-            <a href="/admin/Orders" className='btn btn-primary'><i class="bi bi-view-list"></i>View Orders</a>
+            <Link to={'/admin/Orders'} className='btn btn-primary'><i class="bi bi-view-list"></i>View Orders</Link>
             </div>
           </div>
         </div>

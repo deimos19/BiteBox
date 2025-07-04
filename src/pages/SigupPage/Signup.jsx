@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import BiteBox from "../../assets/hero-images/hero2.png";
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate, Link } from 'react-router-dom';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -134,9 +134,9 @@ const Signup = () => {
 
               <p className="text-sm mt-2 text-center">
                 Already have an account?
-                <a href='/Login' className="text-blue-500 cursor-pointer ml-1 hover:underline">
+                <Link to={'/Login'}  className="text-blue-500 cursor-pointer ml-1 hover:underline">
                   Login
-                </a>
+                </Link>
               </p>
             </fieldset>
           </form>

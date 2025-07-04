@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import BiteBox from "../../assets/hero-images/hero2.png";
 import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom"
 
 const AdminLogin = () => {
   const [email, setEmail] = useState('');
@@ -52,7 +53,7 @@ const AdminLogin = () => {
             <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-full border p-6 shadow-md">
               <div className='flex justify-between items-center'>
                 <legend className="fieldset-legend text-2xl font-semibold mb-4">Admin Login</legend>
-                <p><a href="/Login" className='font-semibold'>User Login</a></p>
+                <p><Link to={'/Login'} className='font-semibold'>User Login</Link></p>
               </div>
 
               {alert.message && (
@@ -93,9 +94,9 @@ const AdminLogin = () => {
 
               <p className="text-sm mt-2 text-center">
                 Don't have an admin account? 
-                <a href='/AdminSignup' className="text-blue-500 cursor-pointer ml-1 hover:underline">
+                <Link to={'/AdminSignup'} className="text-blue-500 cursor-pointer ml-1 hover:underline">
                   Register
-                </a>
+                </Link>
               </p>
             </fieldset>
           </form>

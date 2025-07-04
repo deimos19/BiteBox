@@ -1,6 +1,7 @@
 import React from 'react';
 import BiteBox from "../../assets/hero-images/BiteBox.png";
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -35,27 +36,27 @@ const Header = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
-              <li><a href='/'><i className="bi bi-house"></i> Home</a></li>
-              <li><a><i className="bi bi-question-circle"></i> About Us</a></li>
-              <li><a><i className="bi bi-telephone"></i> Support</a></li>
-              <li><a><i className="bi bi-list-ul"></i> Menu</a></li>
+              <li><Link to={'/'}><i className="bi bi-house"></i> Home</Link></li>
+              <li><Link><i className="bi bi-question-circle"></i> About Us</Link></li>
+              <li><Link><i className="bi bi-telephone"></i> Support</Link></li>
+              <li><Link><i className="bi bi-list-ul"></i> Menu</Link></li>
             </ul>
           </div>
 
           
           <img src={BiteBox} className='w-15 mr-3' alt="logo" />
           <div className="flex flex-col">
-            <a className="font-bold text-yellow-500 text-xl">BiteBox</a>
+            <p className="font-bold text-yellow-500 text-xl">BiteBox</p>
           </div>
         </div>
 
         
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <li><a href='/'><i className="bi bi-house"></i> Home</a></li>
-            <li><a><i className="bi bi-question-circle"></i> About Us</a></li>
-            <li><a><i className="bi bi-telephone"></i> Support</a></li>
-            <li><a><i className="bi bi-list-ul"></i> Menu</a></li>
+            <li><Link to={'/'}><i className="bi bi-house"></i> Home</Link></li>
+            <li><Link><i className="bi bi-question-circle"></i> About Us</Link></li>
+            <li><Link><i className="bi bi-telephone"></i> Support</Link></li>
+            <li><Link><i className="bi bi-list-ul"></i> Menu</Link></li>
           </ul>
         </div>
 
@@ -79,12 +80,9 @@ const Header = () => {
             <small>{restaurantStatus}</small>
           </div>
 
-          <a
-            href='/cart'
-            className="btn btn-square btn-ghost hover:bg-transparent border-none hover:border-none"
-          >
+          <Link to={'/cart'} className="btn btn-square btn-ghost hover:bg-transparent border-none hover:border-none">
             <i className="bi bi-cart-dash"></i>Cart
-          </a>
+          </Link>
 
           {user ? (
             <div className="dropdown dropdown-end">
@@ -104,12 +102,9 @@ const Header = () => {
               </ul>
             </div>
           ) : (
-            <a
-              href='/Login'
-              className="btn btn-ghost bg-yellow-500 text-black hover:bg-yellow-600"
-            >
+            <Link to={'/Login'} className="btn btn-ghost bg-yellow-500 text-black hover:bg-yellow-600">
               <i className="bi bi-box-arrow-in-left"></i> Sign In
-            </a>
+            </Link>
           )}
         </div>
       </div>

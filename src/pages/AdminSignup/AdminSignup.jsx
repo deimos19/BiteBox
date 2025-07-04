@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 import BiteBox from "../../assets/hero-images/hero2.png";
 
 const AdminSignup = () => {
@@ -143,9 +143,9 @@ const AdminSignup = () => {
 
               <p className="text-sm mt-2 text-center">
                 Already have an account?
-                <a href='/AdminLogin' className="text-blue-500 cursor-pointer ml-1 hover:underline">
+                <Link to={'/AdminLogin'} className="text-blue-500 cursor-pointer ml-1 hover:underline">
                   Login
-                </a>
+                </Link>
               </p>
             </fieldset>
           </form>

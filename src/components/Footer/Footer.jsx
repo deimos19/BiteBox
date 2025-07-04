@@ -1,5 +1,6 @@
 import React from 'react';
 import { assets } from '../../assets/frontend_assets/assets'; 
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -21,10 +22,10 @@ const Footer = () => {
         <div>
           <h3 className="text-xl font-bold mb-2">Quick Links</h3>
           <ul className="space-y-2">
-            <li><a href="#" className="hover:text-white">Home</a></li>
-            <li><a href="#" className="hover:text-white">Menu</a></li>
-            <li><a href="#" className="hover:text-white">About Us</a></li>
-            <li><a href="#" className="hover:text-white">Contact</a></li>
+            <li><Link href="#" className="hover:text-white">Home</Link></li>
+            <li><Link href="#" className="hover:text-white">Menu</Link></li>
+            <li><Link href="#" className="hover:text-white">About Us</Link></li>
+            <li><Link href="#" className="hover:text-white">Contact</Link></li>
           </ul>
         </div>
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import BiteBox from "../../assets/hero-images/hero2.png";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -46,7 +46,7 @@ const Login = () => {
             <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-full border p-6 shadow-md">
               <div className='flex justify-between items-center'>
                 <legend className="fieldset-legend text-2xl font-semibold mb-4">User Login</legend>
-                <p><a href="/AdminLogin" className='font-semibold'>Admin Login</a></p>
+                <p><Link to={'/AdminLogin'} className='font-semibold'>Admin Login</Link></p>
               </div>
               
 
@@ -85,9 +85,9 @@ const Login = () => {
 
               <p className="text-sm mt-2 text-center">
                 Not a user? 
-                <a href="/Signup" className="text-blue-500 cursor-pointer ml-1 hover:underline">
+                <Link to={'/Signup'} className="text-blue-500 cursor-pointer ml-1 hover:underline">
                   Sign Up
-                </a>
+                </Link>
               </p>
 
               <hr className="my-4 border-gray-300" />
@@ -95,9 +95,9 @@ const Login = () => {
               <div>
                 <h3 className='text-base'>What is BiteBox Business?</h3>
                 <p>BiteBox Business is the dedicated admin panel for restaurant partners and food vendors on the BiteBox platform. It allows restaurant owners and partners to manage their menu, track orders, and monitor sales in real time.</p>
-                <a href='/AdminSignup' className="btn btn-outline btn-sm w-full hover:bg-yellow-500 hover:text-black mt-3">
+                <Link to={'/AdminSignup'} className="btn btn-outline btn-sm w-full hover:bg-yellow-500 hover:text-black mt-3">
                   <i className="bi bi-bag"></i> Get BiteBox Business
-                </a>
+                </Link>
               </div>
             </fieldset>
           </form>
