@@ -11,7 +11,6 @@ const Header = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('loggedInUser');
-    alert('Logged out successfully!');
     navigate('/Login');
   };
 
@@ -44,7 +43,7 @@ const Header = () => {
           </div>
 
           
-          <img src={BiteBox} className='w-15 mr-3' alt="logo" />
+          <img src={BiteBox} className='w-15' alt="logo" />
           <div className="flex flex-col">
             <p className="font-bold text-yellow-500 text-xl">BiteBox</p>
           </div>
@@ -62,23 +61,23 @@ const Header = () => {
 
         
         <div className="navbar-end gap-5">
-          <div className="flex items-center gap-2 mt-1 rounded-lg border text-sm px-2 py-1">
-            <div className="inline-grid *:[grid-area:1/1]">
-              
-              <div
-                className={`animate-ping rounded-full h-3 w-3 ${
-                  restaurantStatus === 'Open' ? 'bg-green-500' : 'bg-red-500'
-                }`}
-              ></div>
-
-              <div
-                className={`rounded-full h-3 w-3 ${
-                  restaurantStatus === 'Open' ? 'bg-green-600' : 'bg-red-600'
-                }`}
-              ></div>
+          {user && (
+            <div className="flex items-center gap-2 mt-1 rounded-lg border text-sm px-2 py-1">
+              <div className="inline-grid *:[grid-area:1/1]">
+                <div
+                  className={`animate-ping rounded-full h-3 w-3 ${
+                    restaurantStatus === 'Open' ? 'bg-green-500' : 'bg-red-500'
+                  }`}
+                ></div>
+                <div
+                  className={`rounded-full h-3 w-3 ${
+                    restaurantStatus === 'Open' ? 'bg-green-600' : 'bg-red-600'
+                  }`}
+                ></div>
+              </div>
+              <small>{restaurantStatus}</small>
             </div>
-            <small>{restaurantStatus}</small>
-          </div>
+          )}
 
           <Link to={'/cart'} className="btn btn-square btn-ghost hover:bg-transparent border-none hover:border-none">
             <i className="bi bi-cart-dash"></i>Cart
@@ -107,6 +106,7 @@ const Header = () => {
             </Link>
           )}
         </div>
+
       </div>
     </div>
   );

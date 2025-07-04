@@ -33,7 +33,7 @@ const FoodItems = ({ selectedCategory }) => {
         />
       </div>
 
-      <div className="grid grid-cols-1 place-items-center md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 place-items-center md:grid-cols-3 lg:grid-cols-4 gap-4">
         {filteredFoods.length > 0 ? (
           filteredFoods.map((item, index) => (
             <ItemCard key={index} item={item} />

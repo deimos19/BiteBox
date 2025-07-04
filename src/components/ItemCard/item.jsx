@@ -24,9 +24,7 @@ const ItemCard = ({ item }) => {
           </div>
         </div>
       )}
-
-      {/* CARD */}
-      <div className="card bg-base-100 w-72 shadow-sm hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+      <div className="card bg-base-100 shadow-sm hover:shadow-lg transition-shadow duration-300 cursor-pointer">
         <figure>
           <img
             src={item.image}

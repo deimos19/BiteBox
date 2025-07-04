@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 const CartPage = () => {
   const [cartItems, setCartItems] = useState([]);
   const [showCheckout, setShowCheckout] = useState(false);
+  const [showToast, setShowToast] = useState(false);
   const [weatherAlert, setWeatherAlert] = useState('');
   const navigate = useNavigate();
 
@@ -41,12 +42,18 @@ const CartPage = () => {
   savedOrders.push(cartItems); // add new order
   localStorage.setItem("userOrders", JSON.stringify(savedOrders));
 
-  alert("Order Placed Successfully!");
   localStorage.removeItem("cartItems");
   setCartItems([]);
   setShowCheckout(false);
-  navigate("/");
+
+  setShowToast(true);
+
+  setTimeout(() => {
+    setShowToast(false);
+    navigate("/");
+  }, 2500);
 };
+
 
   const cartTotal = cartItems.reduce(
     (total, item) => total + item.price * (item.quantity || 1),
@@ -56,6 +63,14 @@ const CartPage = () => {
   return (
     <>
       <div className="container mx-auto lg:px-60">
+        {showToast && (
+          <div className="toast toast-top toast-center z-50">
+            <div className="alert alert-success">
+              <span>Order placed successfully!</span>
+            </div>
+          </div>
+        )}
+
         
         {/* Weather Alert */}
         {weatherAlert && (
