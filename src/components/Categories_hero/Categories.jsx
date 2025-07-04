@@ -13,22 +13,23 @@ const Categories = ({ handleCategoryClick }) => {
           </Link>
         </div>
 
-        <div className="flex lg:flex-wrap overflow-x-auto lg:overflow-visible gap-4 no-scrollbar">
+        <div className="flex flex-wrap justify-center gap-4 overflow-x-auto lg:overflow-visible no-scrollbar px-2 py-4">
           {menu_list.map((item, index) => (
             <div
               key={index}
-              className="flex-shrink-0 w-1/4 no-scrollbar lg:w-24 text-center cursor-pointer hover:scale-90 transition-transform duration-200 lg:mx-3"
+              className="flex-shrink-0 w-24 text-center cursor-pointer hover:scale-95 transition-transform duration-200"
               onClick={() => handleCategoryClick(item.menu_name)}
             >
               <img
                 src={item.menu_image}
                 alt={item.menu_name}
-                className="w-20 h-20 lg:w-24 lg:h-24 object-cover rounded-full mx-auto mb-2 shadow-md"
+                className="w-20 h-20 object-cover rounded-full mx-auto mb-2 shadow-md"
               />
               <p className="text-sm font-medium">{item.menu_name}</p>
             </div>
           ))}
         </div>
+
       </div>
       <hr className="mx-10 my-4 border-gray-300" />
     </div>
