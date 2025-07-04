@@ -44,7 +44,7 @@ const FoodItems = ({ selectedCategory }) => {
             <p className="text-gray-500">
               No food items found matching "{searchTerm}" in {selectedCategory || 'All'} category.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
+            <div className="grid grid-cols-2 place-items-center md:grid-cols-3 lg:grid-cols-4 gap-4">
                 <div className="flex w-52 flex-col gap-4">
                   <div className="skeleton h-32 w-full"></div>
                   <div className="skeleton h-4 w-28"></div>
