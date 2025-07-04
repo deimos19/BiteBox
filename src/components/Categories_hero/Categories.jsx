@@ -8,9 +8,8 @@ const Categories = ({ handleCategoryClick }) => {
       <div className="px-4 py-6">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-3xl font-bold">What are you craving for?</h2>
-          <Link href="#" className="flex items-center">
-            <i className="bi bi-search mx-2"></i> Search Food
-          </Link>
+          <a href="#Menu" className="flex items-center">
+            <i className="bi bi-search mx-2"></i><small className='hidden md:block'>Search Food</small></a>
         </div>
 
         <div className="flex flex-wrap justify-center gap-4 overflow-x-auto lg:overflow-visible no-scrollbar px-2 py-4">
