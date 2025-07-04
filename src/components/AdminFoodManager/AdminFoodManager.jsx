@@ -100,7 +100,7 @@ const AdminFoodManager = () => {
 
 
       
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 place-items-center md:grid-cols-3 lg:grid-cols-4 gap-4">
         {foods.map((item, index) => (
           <AdminFoodCard key={index} item={item} index={index} handleDelete={handleDelete} />
         ))}

@@ -2,7 +2,7 @@ import React from 'react';
 
 const AdminFoodCard = ({ item, index, handleDelete }) => {
   return (
-    <div className="card bg-base-100 w-72 shadow-md hover:shadow-lg transition-all duration-300">
+    <div className="card bg-base-100 shadow-md hover:shadow-lg transition-all duration-300">
       <figure>
         <img
           src={item.image}
