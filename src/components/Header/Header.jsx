@@ -79,7 +79,7 @@ const Header = () => {
             </div>
           )}
 
-          <Link to={'/cart'} className="btn btn-square btn-ghost hover:bg-transparent border-none hover:border-none">
+          <Link to={'/cart'} className="btn btn-ghost border-none hover:border-none">
             <i className="bi bi-cart-dash"></i>Cart
           </Link>
 

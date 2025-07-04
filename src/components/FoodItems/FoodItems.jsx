@@ -23,15 +23,16 @@ const FoodItems = ({ selectedCategory }) => {
       </h2>
 
       <div className="mb-6 flex items-center">
-        <i className="bi bi-search mr-2"></i>
+        <i className="bi bi-search mr-2 text-gray-500 transition-colors"></i>
         <input
           type="text"
           placeholder="Search food..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="max-w-sm rounded-md focus:outline-none border-b-4 border-white-500 "
+          className="w-full md:w-72 rounded-md border-b border-gray-300 focus:outline-none focus:border-yellow-500 transition-all"
         />
       </div>
+
 
       <div className="grid grid-cols-2 place-items-center md:grid-cols-3 lg:grid-cols-4 gap-4">
         {filteredFoods.length > 0 ? (
