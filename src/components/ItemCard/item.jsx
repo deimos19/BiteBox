@@ -40,14 +40,14 @@ const ItemCard = ({ item }) => {
 
             {user ? (
               <button
-                className="btn btn-sm bg-yellow-500 text-white hover:bg-green-600"
+                className="btn btn-sm bg-yellow-500 text-black hover:bg-green-600"
                 onClick={handleAddToCart}
               >
                 <i className="bi bi-cart-plus"></i> Add to Cart
               </button>
             ) : (
               <button
-                className="btn btn-sm bg-yellow-500 text-white hover:bg-green-600"
+                className="btn btn-sm bg-yellow-500 text-black hover:bg-green-600"
                 onClick={() => navigate('/Login')}
               >
                 <i className="bi bi-cart-plus"></i> Add to Cart
