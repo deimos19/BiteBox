@@ -19,7 +19,7 @@ const AdminFoodCard = ({ item, index, handleDelete }) => {
           <button
             className="btn btn-sm bg-red-600 text-white hover:bg-red-700"
             onClick={() => handleDelete(index)}
-          >
+          ><i class="bi bi-trash3"></i>
             Delete
           </button>
         </div>

@@ -1,14 +1,17 @@
-// import React from 'react';
-import BiteBox from "../../assets/hero-images/hero2.png";
 import React, { useState } from 'react';
+import BiteBox from "../../assets/hero-images/hero2.png";
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const Signup = () => {
-    const [formData, setFormData] = useState({
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
     confirmPassword: '',
   });
+
+  const [alert, setAlert] = useState({ message: '', type: '' });
 
   const handleChange = (e) => {
     setFormData({
@@ -20,18 +23,34 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (formData.password !== formData.confirmPassword) {
+      setAlert({ message: "Passwords do not match.", type: "error" });
+      return;
+    }
+
     const userDetails = {
       name: formData.name,
       email: formData.email,
       password: formData.password,
     };
 
-    console.log('User Details:', userDetails);
-
     localStorage.setItem('userLoginDetails', JSON.stringify(userDetails));
+    setAlert({ message: "User registered successfully!", type: "success" });
+    
 
-    alert('User registered successfully!');
+    
+    setFormData({
+      name: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+    });
+    
+    setTimeout(() => {
+      navigate('/Login');
+    }, 1000);
   };
+
   return (
     <div className="container mx-auto lg:px-40 px-4 py-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -52,6 +71,18 @@ const Signup = () => {
           <form onSubmit={handleSubmit}>
             <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-full border p-6 shadow-md">
               <legend className="fieldset-legend text-2xl font-semibold mb-4">Create Account</legend>
+
+              {alert.message && (
+                <div
+                  role="alert"
+                  className={`alert ${alert.type === 'success' ? 'alert-success' : 'alert-error'} mb-4`}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>{alert.message}</span>
+                </div>
+              )}
 
               <label className="label">Name</label>
               <input

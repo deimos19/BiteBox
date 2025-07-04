@@ -6,11 +6,17 @@ import { useNavigate } from "react-router-dom";
 const CartPage = () => {
   const [cartItems, setCartItems] = useState([]);
   const [showCheckout, setShowCheckout] = useState(false);
+  const [weatherAlert, setWeatherAlert] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem("cartItems")) || [];
     setCartItems(savedCart);
+
+    const alertMessage = localStorage.getItem("weatherAlert");
+    if (alertMessage) {
+      setWeatherAlert(alertMessage);
+    }
   }, []);
 
   const handleRemoveItem = (removeIndex) => {
@@ -31,12 +37,16 @@ const CartPage = () => {
   };
 
   const handlePlaceOrder = () => {
-    alert("Order Placed Successfully!");
-    localStorage.removeItem("cartItems");
-    setCartItems([]);
-    setShowCheckout(false);
-    navigate("/");
-  };
+  const savedOrders = JSON.parse(localStorage.getItem("userOrders")) || [];
+  savedOrders.push(cartItems); // add new order
+  localStorage.setItem("userOrders", JSON.stringify(savedOrders));
+
+  alert("Order Placed Successfully!");
+  localStorage.removeItem("cartItems");
+  setCartItems([]);
+  setShowCheckout(false);
+  navigate("/");
+};
 
   const cartTotal = cartItems.reduce(
     (total, item) => total + item.price * (item.quantity || 1),
@@ -46,6 +56,17 @@ const CartPage = () => {
   return (
     <>
       <div className="container mx-auto lg:px-60">
+        
+        {/* Weather Alert */}
+        {weatherAlert && (
+          <div role="alert" className="alert alert-warning alert-soft my-4">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M12 18.5A6.5 6.5 0 1012 5.5a6.5 6.5 0 000 13z" />
+            </svg>
+            <span>{weatherAlert}</span>
+          </div>
+        )}
+
         <div className="p-4">
           <div className="flex justify-between">
             <h2 className="text-2xl font-bold mb-4">
@@ -126,20 +147,20 @@ const CartPage = () => {
           </div>
         )}
 
-        
         <div className="flex justify-end gap-3 mb-5">
           <button
             className={`btn bg-green-600 text-white mt-4 ${showCheckout ? "hidden" : "block"}`}
             onClick={handleCheckout}
-          ><i class="bi bi-book mr-1"></i>
+          >
+            <i className="bi bi-book mr-1"></i>
             View Order Summary
           </button>
 
-         
           <button
             className={`btn bg-green-600 text-white mt-4 ${showCheckout ? "block" : "hidden"}`}
             onClick={handlePlaceOrder}
-          ><i class="bi bi-arrow-return-left mr-1"></i>
+          >
+            <i className="bi bi-arrow-return-left mr-1"></i>
             Place Order
           </button>
         </div>

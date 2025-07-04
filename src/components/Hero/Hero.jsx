@@ -1,6 +1,5 @@
 import React from 'react'
-import BiteBox from '../../assets/hero-images/Bitebox.png';
-import Categories from '../Categories_hero/Categories';
+import BiteBox from '../../assets/hero-images/BiteBox.png';
 
 
 const Hero = () => {

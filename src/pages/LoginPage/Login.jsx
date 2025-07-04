@@ -5,27 +5,29 @@ import { useNavigate } from 'react-router-dom';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [alert, setAlert] = useState({ message: '', type: '' });
   const navigate = useNavigate();
 
- const handleLogin = (e) => {
-  e.preventDefault();
+  const handleLogin = (e) => {
+    e.preventDefault();
 
-  const savedUser = JSON.parse(localStorage.getItem('userLoginDetails'));
+    const savedUser = JSON.parse(localStorage.getItem('userLoginDetails'));
 
-  if (savedUser) {
-    if (savedUser.email === email && savedUser.password === password) {
-      
-      localStorage.setItem('loggedInUser', JSON.stringify(savedUser));
+    if (savedUser) {
+      if (savedUser.email === email && savedUser.password === password) {
+        localStorage.setItem('loggedInUser', JSON.stringify(savedUser));
+        setAlert({ message: 'Login successful!', type: 'success' });
 
-      alert('Login successful!');
-      navigate('/');
+        setTimeout(() => {
+          navigate('/');
+        }, 1000);
+      } else {
+        setAlert({ message: 'Invalid email or password', type: 'error' });
+      }
     } else {
-      alert('Invalid email or password');
+      setAlert({ message: 'No user found. Please sign up first.', type: 'error' });
     }
-  } else {
-    alert('No user found. Please sign up first.');
-  }
-};
+  };
 
   return (
     <div className="container mx-auto lg:px-40 px-4 py-10">
@@ -42,7 +44,20 @@ const Login = () => {
         <div>
           <form onSubmit={handleLogin}>
             <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-full border p-6 shadow-md">
-              <legend className="fieldset-legend text-2xl font-semibold mb-4">User Login</legend>
+              <div className='flex justify-between items-center'>
+                <legend className="fieldset-legend text-2xl font-semibold mb-4">User Login</legend>
+                <p><a href="/AdminLogin" className='font-semibold'>Admin Login</a></p>
+              </div>
+              
+
+              {alert.message && (
+                <div role="alert" className={`alert ${alert.type === 'success' ? 'alert-success' : 'alert-error'} mb-4`}>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>{alert.message}</span>
+                </div>
+              )}
 
               <label className="label">Email</label>
               <input

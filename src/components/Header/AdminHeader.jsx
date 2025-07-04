@@ -29,13 +29,15 @@ const AdminHeader = () => {
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-      <li><a>Home</a></li>
-      <li><a>Today's Orders</a></li>
-      <li><a>Manage</a></li>
-      <li><a>Total Sale</a></li>
+      <li><a href='/admin'><i class="bi bi-house"></i>Home</a></li>
+      <li><a><i class="bi bi-tools"></i>Manage</a></li>
+      <li><a><i class="bi bi-telephone"></i>Support</a></li>
     </ul>
   </div>
   <div className="navbar-end">
+    <div className="mx-5 text-center">
+      <a href="/admin/Orders" className='btn btn-ghost'><i class="bi bi-view-list"></i>View Orders</a>
+    </div>
     <div className="dropdown dropdown-end">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">

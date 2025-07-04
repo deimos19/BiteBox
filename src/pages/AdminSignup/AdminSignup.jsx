@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import BiteBox from "../../assets/hero-images/hero2.png";
 
 const AdminSignup = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
     confirmPassword: '',
   });
+
+  const [alert, setAlert] = useState({ message: '', type: '' });
 
   const handleChange = (e) => {
     setFormData({
@@ -19,32 +24,45 @@ const AdminSignup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (formData.password !== formData.confirmPassword) {
+      setAlert({ message: "Passwords do not match.", type: "error" });
+      return;
+    }
+
     const adminDetails = {
       name: formData.name,
       email: formData.email,
       password: formData.password,
-      role: "admin"
+      role: "admin",
     };
 
-    console.log('Admin Details:', adminDetails);
-
-   
     localStorage.setItem('adminSignupDetails', JSON.stringify(adminDetails));
+    setAlert({ message: "Admin registered successfully!", type: "success" });
 
-    alert('Admin registered successfully!');
+    
+    setFormData({
+      name: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+    });
+
+    
+    setTimeout(() => {
+      navigate('/AdminLogin');
+    }, 1000);
   };
 
   return (
     <div className="container mx-auto lg:px-40 px-4 py-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
 
-        
         <div className="text-left">
           <h2 className="text-3xl font-bold mb-4 text-yellow-500">What is BiteBox Business?</h2>
           <p className="text-gray-100 mb-4">
             BiteBox Business is a dedicated platform for restaurant partners and food vendors. 
             It allows business owners to manage their menus, track customer orders, monitor daily sales, 
-            and control product availability in real time. 
+            and control product availability in real time.
           </p>
           <p className="text-gray-100 mb-4">
             With BiteBox Business, vendors can also analyze their sales data, receive customer feedback, 
@@ -58,11 +76,22 @@ const AdminSignup = () => {
           />
         </div>
 
-        
         <div>
           <form onSubmit={handleSubmit}>
             <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-full border p-6 shadow-md">
               <legend className="fieldset-legend text-2xl font-semibold mb-4">BiteBox Business Signup</legend>
+
+              {alert.message && (
+                <div
+                  role="alert"
+                  className={`alert ${alert.type === 'success' ? 'alert-success' : 'alert-error'} mb-4`}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>{alert.message}</span>
+                </div>
+              )}
 
               <label className="label">Name</label>
               <input

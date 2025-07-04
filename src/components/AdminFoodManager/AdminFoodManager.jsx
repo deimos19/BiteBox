@@ -42,8 +42,8 @@ const AdminFoodManager = () => {
       <div className='flex justify-between'>
         <h2 className="text-2xl font-bold mb-6">Manage Food Items</h2>
         <div className="dropdown dropdown-end">
-        <div tabIndex={0} role="button" className="btn m-1">Add Food Item</div>
-        <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-100 p-2 shadow-sm">
+        <div tabIndex={0} role="button" className="btn btn-ghost hover:btn-primary m-1"><i class="bi bi-bag-plus-fill mr-1"></i>Add Food Item</div>
+        <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-1 w-100 p-2 shadow-sm">
         
         <form onSubmit={handleAddFood} className="mb-8 grid grid-cols-1 md:grid-cols-2 gap-4">
             <input
@@ -90,9 +90,8 @@ const AdminFoodManager = () => {
           onChange={handleChange}
           className="input input-bordered w-full"
         />
-        <button type="submit" className="btn bg-green-600 text-white w-full md:col-span-2">
-          Add Food Item
-        </button>
+        <button type="submit" className="btn bg-green-500 text-white md:col-span-2"><i className="bi bi-bag-plus-fill"></i>
+        Add Item</button>
         
       </form>
         </ul>

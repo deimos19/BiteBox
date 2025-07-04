@@ -40,14 +40,35 @@ const FoodItems = ({ selectedCategory }) => {
           ))
         ) : (
           <div className="col-span-full text-center">
-            <img
-              src="https://worldfoodtour.co.uk/wp-content/uploads/2013/06/neptune-placeholder-48.jpg"
-              alt="No items found"
-              className="mx-auto mb-4"
-            />
             <p className="text-gray-500">
               No food items found matching "{searchTerm}" in {selectedCategory || 'All'} category.
             </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
+                <div className="flex w-52 flex-col gap-4">
+                  <div className="skeleton h-32 w-full"></div>
+                  <div className="skeleton h-4 w-28"></div>
+                  <div className="skeleton h-4 w-full"></div>
+                  <div className="skeleton h-4 w-full"></div>
+                </div>
+                <div className="flex w-52 flex-col gap-4">
+                  <div className="skeleton h-32 w-full"></div>
+                  <div className="skeleton h-4 w-28"></div>
+                  <div className="skeleton h-4 w-full"></div>
+                  <div className="skeleton h-4 w-full"></div>
+                </div>
+                <div className="flex w-52 flex-col gap-4">
+                  <div className="skeleton h-32 w-full"></div>
+                  <div className="skeleton h-4 w-28"></div>
+                  <div className="skeleton h-4 w-full"></div>
+                  <div className="skeleton h-4 w-full"></div>
+                </div>
+                <div className="flex w-52 flex-col gap-4">
+                  <div className="skeleton h-32 w-full"></div>
+                  <div className="skeleton h-4 w-28"></div>
+                  <div className="skeleton h-4 w-full"></div>
+                  <div className="skeleton h-4 w-full"></div>
+                </div>
+            </div>
           </div>
         )}
       </div>

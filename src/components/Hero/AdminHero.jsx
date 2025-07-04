@@ -18,7 +18,7 @@ const AdminHero = () => {
             </p>
             <div className='flex gap-4'>
             <button className="btn btn-primary"><i class="bi bi-tools"></i>Manage</button>
-            <a href="" className='btn btn-primary'><i class="bi bi-view-list"></i>View Orders</a>
+            <a href="/admin/Orders" className='btn btn-primary'><i class="bi bi-view-list"></i>View Orders</a>
             </div>
           </div>
         </div>

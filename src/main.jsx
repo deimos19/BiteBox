@@ -17,6 +17,7 @@ import Signup from './pages/SigupPage/Signup.jsx';
 import AdminSignup from './pages/AdminSignup/AdminSignup.jsx';
 import AdminLogin from './pages/AdminLogin/AdminLogin.jsx';
 import AdminHomepage from './pages/Homepage/AdminHomepage.jsx';
+import AdminOrders from './pages/AdminViewOrders/AdminOrders.jsx';
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element:<AdminHomepage/>
+      },
+      {
+        path:"Orders",
+        element:<AdminOrders/>
       }
     ]
   }
