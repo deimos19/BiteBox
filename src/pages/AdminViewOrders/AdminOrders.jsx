@@ -56,8 +56,8 @@ const AdminOrders = () => {
 
       {orders.length === 0 ? (
         <>
-          <p className="text-gray-300">No orders found.</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
+          <p className="text-gray-300 text-center font-semibold my-3">No orders found.</p>
+          <div className="grid grid-cols-2 place-items-center md:grid-cols-3 lg:grid-cols-4 gap-4">
             {[...Array(4)].map((_, i) => (
               <div key={i} className="flex w-52 flex-col gap-4">
                 <div className="flex items-center gap-4">
