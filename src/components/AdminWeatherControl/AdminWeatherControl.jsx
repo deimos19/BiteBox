@@ -37,7 +37,7 @@ const AdminWeatherControl = () => {
             <h2 className="text-2xl font-bold mb-2">
         Manage Restaurant Status & Weather Alerts
         </h2>
-        <p className="text-gray-300 mb-6">
+        <p className=" mb-6">
         Keep your customers informed by updating the current weather conditions and restaurant availability. 
         Choose from Sunny, Cloudy, or Rainy weather, and toggle restaurant status to Open or Closed. 
         These updates will display on the user interface to ensure better order transparency and delivery expectations.
@@ -48,7 +48,7 @@ const AdminWeatherControl = () => {
         
         <div className='bg-base-200 px-5 py-5'>
           <h2 className="text-2xl font-bold mb-4 text-blue-400">Restaurant Status</h2>
-          <p className="mb-4 text-gray-300">Set your restaurant availability status:</p>
+          <p className="mb-4 ">Set your restaurant availability status:</p>
 
           <div className="flex gap-4">
             <button
@@ -73,7 +73,7 @@ const AdminWeatherControl = () => {
         
         <div className='bg-base-200 px-5 py-5'>
           <h2 className="text-2xl font-bold mb-4 text-blue-400">Weather Alert Control</h2>
-          <p className="mb-4 text-gray-300">Set weather alerts that affect delivery times:</p>
+          <p className="mb-4">Set weather alerts that affect delivery times:</p>
 
           <div className="flex flex-col md:flex-row gap-4 mb-4">
             <label className={`btn ${weather === 'Sunny' ? 'btn-active bg-blue-700 text-white' : 'btn-active text-white'}`}>
