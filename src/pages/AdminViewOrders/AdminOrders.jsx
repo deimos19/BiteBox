@@ -36,7 +36,7 @@ const AdminOrders = () => {
         <h2 className="text-2xl font-bold">User Orders Overview</h2>
         {orders.length > 0 && (
           <button
-            className="btn btn-Ghost text-white"
+            className="btn btn-Ghost"
             onClick={handleClearAllOrders}
           >
             <i className="bi bi-trash3 mr-1"></i> Clear All Orders
