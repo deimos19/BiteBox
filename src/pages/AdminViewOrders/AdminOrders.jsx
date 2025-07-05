@@ -20,14 +20,12 @@ const AdminOrders = () => {
     localStorage.setItem("acceptedOrders", JSON.stringify(updatedAccepted));
   };
 
-  const handleClearAllOrders = () => {
-    const confirmClear = window.confirm("Are you sure you want to clear all orders?");
-    if (confirmClear) {
-      localStorage.removeItem("userOrders");
-      localStorage.removeItem("acceptedOrders");
-      setOrders([]);
-      setAcceptedOrders([]);
-    }
+  const confirmClearOrders = () => {
+    localStorage.removeItem("userOrders");
+    localStorage.removeItem("acceptedOrders");
+    setOrders([]);
+    setAcceptedOrders([]);
+    document.getElementById("clear-orders-modal").checked = false;
   };
 
   return (
@@ -35,62 +33,45 @@ const AdminOrders = () => {
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold">User Orders Overview</h2>
         {orders.length > 0 && (
-          <button
-            className="btn btn-Ghost"
-            onClick={handleClearAllOrders}
-          >
+          <label htmlFor="clear-orders-modal" className="btn btn-ghost">
             <i className="bi bi-trash3 mr-1"></i> Clear All Orders
-          </button>
+          </label>
         )}
+      </div>
+
+      {/* Modal */}
+      <input type="checkbox" id="clear-orders-modal" className="modal-toggle" />
+      <div className="modal">
+        <div className="modal-box">
+          <h3 className="font-bold text-lg">Confirm Clear</h3>
+          <p className="py-4">Are you sure you want to clear all orders? This action cannot be undone.</p>
+          <div className="modal-action">
+            <label htmlFor="clear-orders-modal" className="btn btn-outline">Cancel</label>
+            <button onClick={confirmClearOrders} className="btn btn-error">
+              Yes, Clear All
+            </button>
+          </div>
+        </div>
       </div>
 
       {orders.length === 0 ? (
         <>
-        <p className="text-gray-300">No orders found.</p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
-            <div className="flex w-52 flex-col gap-4">
+          <p className="text-gray-300">No orders found.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
+            {[...Array(4)].map((_, i) => (
+              <div key={i} className="flex w-52 flex-col gap-4">
                 <div className="flex items-center gap-4">
-                    <div className="skeleton h-16 w-16 shrink-0 rounded-full"></div>
-                    <div className="flex flex-col gap-4">
+                  <div className="skeleton h-16 w-16 shrink-0 rounded-full"></div>
+                  <div className="flex flex-col gap-4">
                     <div className="skeleton h-4 w-20"></div>
                     <div className="skeleton h-4 w-28"></div>
-                    </div>
+                  </div>
                 </div>
                 <div className="skeleton h-32 w-full"></div>
-            </div>
-            <div className="flex w-52 flex-col gap-4">
-                <div className="flex items-center gap-4">
-                    <div className="skeleton h-16 w-16 shrink-0 rounded-full"></div>
-                    <div className="flex flex-col gap-4">
-                    <div className="skeleton h-4 w-20"></div>
-                    <div className="skeleton h-4 w-28"></div>
-                    </div>
-                </div>
-                <div className="skeleton h-32 w-full"></div>
-            </div>
-            <div className="flex w-52 flex-col gap-4">
-                <div className="flex items-center gap-4">
-                    <div className="skeleton h-16 w-16 shrink-0 rounded-full"></div>
-                    <div className="flex flex-col gap-4">
-                    <div className="skeleton h-4 w-20"></div>
-                    <div className="skeleton h-4 w-28"></div>
-                    </div>
-                </div>
-                <div className="skeleton h-32 w-full"></div>
-            </div>
-            <div className="flex w-52 flex-col gap-4">
-                <div className="flex items-center gap-4">
-                    <div className="skeleton h-16 w-16 shrink-0 rounded-full"></div>
-                    <div className="flex flex-col gap-4">
-                    <div className="skeleton h-4 w-20"></div>
-                    <div className="skeleton h-4 w-28"></div>
-                    </div>
-                </div>
-                <div className="skeleton h-32 w-full"></div>
-            </div>
-        </div>
+              </div>
+            ))}
+          </div>
         </>
-        
       ) : (
         orders.map((order, orderIndex) => {
           const orderTotal = order.reduce(
@@ -101,10 +82,7 @@ const AdminOrders = () => {
           return (
             <div key={orderIndex} className="mb-8 bg-base-200 p-5 rounded-md shadow">
               <div className="flex justify-between items-center mb-2">
-                <h3 className="text-lg font-semibold">
-                  Order #{orderIndex + 1}
-                </h3>
-
+                <h3 className="text-lg font-semibold">Order #{orderIndex + 1}</h3>
                 {acceptedOrders[orderIndex] ? (
                   <span className="badge badge-success text-black">
                     <i className="bi bi-check-circle mr-1"></i> Accepted
