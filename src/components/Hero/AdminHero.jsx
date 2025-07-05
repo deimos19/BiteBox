@@ -18,7 +18,7 @@ const AdminHero = () => {
               quasi. In deleniti eaque aut repudiandae et a id nisi.
             </p>
             <div className='flex gap-4'>
-            <button className="btn btn-primary"><i class="bi bi-tools"></i>Manage</button>
+            <a href='#food' className="btn btn-primary"><i class="bi bi-tools"></i>Manage</a>
             <Link to={'/admin/Orders'} className='btn btn-primary'><i class="bi bi-view-list"></i>View Orders</Link>
             </div>
           </div>

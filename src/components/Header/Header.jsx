@@ -3,7 +3,7 @@ import BiteBox from "../../assets/hero-images/BiteBox.png";
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({ toggleTheme, currentTheme }) => {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem('loggedInUser'));
 
@@ -16,7 +16,7 @@ const Header = () => {
 
   return (
     <div className="container mx-auto lg:px-40">
-      <div className="navbar bg-grey-500 text-white shadow-sm">
+      <div className="navbar bg-base-100 text-base-content shadow-sm">
         
         <div className="navbar-start items-center">
           <div className="dropdown">
@@ -36,8 +36,8 @@ const Header = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li><Link to={'/'}><i className="bi bi-house"></i> Home</Link></li>
-              <li><Link><i className="bi bi-question-circle"></i> About Us</Link></li>
-              <li><Link><i className="bi bi-telephone"></i> Support</Link></li>
+              <li><Link to={'/about'}><i className="bi bi-question-circle"></i> About Us</Link></li>
+              <li><Link to={'/support'}><i className="bi bi-telephone"></i> Support</Link></li>
               <li><Link><i className="bi bi-list-ul"></i> Menu</Link></li>
             </ul>
           </div>
@@ -53,9 +53,9 @@ const Header = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li><Link to={'/'}><i className="bi bi-house"></i> Home</Link></li>
-            <li><Link><i className="bi bi-question-circle"></i> About Us</Link></li>
-            <li><Link><i className="bi bi-telephone"></i> Support</Link></li>
-            <li><Link><i className="bi bi-list-ul"></i> Menu</Link></li>
+            <li><Link to={'/about'}><i className="bi bi-question-circle"></i> About Us</Link></li>
+            <li><Link to={'/Support'}><i className="bi bi-telephone"></i> Support</Link></li>
+            <li><a href='#Menu'><i className="bi bi-list-ul"></i> Menu</a></li>
           </ul>
         </div>
 
@@ -78,10 +78,27 @@ const Header = () => {
               <small>{restaurantStatus}</small>
             </div>
           )}
-
-          <Link to={'/cart'} className="btn btn-ghost border-none hover:border-none">
-            <i className="bi bi-cart-dash"></i>Cart
-          </Link>
+          {user ? (
+            <Link to="/cart" className="btn btn-ghost border-none hover:border-none">
+              <i className="bi bi-cart-dash"></i> Cart
+            </Link>
+          ) : (
+            <div className="form-control">
+              <label className="label cursor-pointer">
+                <small>
+                  <span className="label-text mr-2">
+                    {currentTheme === 'light' ? 'Light' : 'Dark'}
+                  </span>
+                </small>
+                <input
+                  type="checkbox"
+                  className="toggle toggle-primary toggle-sm"
+                  onChange={toggleTheme}
+                  checked={currentTheme === 'dark'}
+                />
+              </label>
+            </div>
+          )}
 
           {user ? (
             <div className="dropdown dropdown-end">
@@ -97,13 +114,29 @@ const Header = () => {
                 tabIndex={0}
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
               >
+                <li>
+                  <div className="form-control">
+                    <label className="label cursor-pointer">Theme:
+                      <span className="label-text mr-2">{currentTheme === 'light' ? 'Light' : 'Dark'}</span>
+                      <input
+                        type="checkbox"
+                        className="toggle toggle-primary"
+                        onChange={toggleTheme}
+                        checked={currentTheme === 'dark'}
+                      />
+                    </label>
+                  </div>
+                </li>
+                <li><a>Settings</a></li>
                 <li><a onClick={handleLogout}>Logout</a></li>
               </ul>
             </div>
           ) : (
+            <>
             <Link to={'/Login'} className="btn btn-ghost bg-yellow-500 text-black hover:bg-yellow-600">
               <i className="bi bi-box-arrow-in-left"></i> Sign In
             </Link>
+            </>
           )}
         </div>
 

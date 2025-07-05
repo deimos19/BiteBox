@@ -18,6 +18,8 @@ import AdminSignup from './pages/AdminSignup/AdminSignup.jsx';
 import AdminLogin from './pages/AdminLogin/AdminLogin.jsx';
 import AdminHomepage from './pages/Homepage/AdminHomepage.jsx';
 import AdminOrders from './pages/AdminViewOrders/AdminOrders.jsx';
+import SupportPage from './pages/SupportPage/SupportPage.jsx';
+import AboutPage from './pages/AboutPage/AboutPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,14 @@ const router = createBrowserRouter([
       {
         path:"/",
         element:<Homepage/>
+      },
+      {
+        path: "/support",
+        element:<SupportPage/>
+      },
+      {
+        path: "/about",
+        element:<AboutPage/>
       },
       {
         path:"/Login",
@@ -62,6 +72,10 @@ const router = createBrowserRouter([
       {
         path:"Orders",
         element:<AdminOrders/>
+      },
+      {
+        path:"support",
+        element:<SupportPage/>
       }
     ]
   }

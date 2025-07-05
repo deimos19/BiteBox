@@ -2,7 +2,7 @@ import React from 'react'
 import BiteBox from "../../assets/hero-images/BiteBoxBusiness.png"
 import { Link } from 'react-router-dom'
 
-const AdminHeader = () => {
+const AdminHeader = ({ toggleTheme, currentTheme }) => {
   return (
     <div className="container mx-auto lg:px-40">
       <div className="navbar bg-base-100 shadow-sm">
@@ -31,13 +31,13 @@ const AdminHeader = () => {
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
       <li><Link to={'/admin'}><i class="bi bi-house"></i>Home</Link></li>
-      <li><Link><i class="bi bi-tools"></i>Manage</Link></li>
-      <li><Link><i class="bi bi-telephone"></i>Support</Link></li>
+      <li><a href='#food'><i class="bi bi-tools"></i>Manage Food</a></li>
+      <li><Link to={'/admin/support'}><i class="bi bi-telephone"></i>Support</Link></li>
     </ul>
   </div>
   <div className="navbar-end">
     <div className="mx-5 text-center">
-      <Link to={'/admin/Orders'} className='btn btn-ghost'><i class="bi bi-view-list"></i>View Orders</Link>
+      <Link to={'/admin/Orders'} className='btn btn-ghost'><i class="bi bi-view-list"></i>Orders</Link>
     </div>
     <div className="dropdown dropdown-end">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
@@ -51,10 +51,17 @@ const AdminHeader = () => {
         tabIndex={0}
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         <li>
-          <Link className="justify-between">
-            Profile
-            <span className="badge">New</span>
-          </Link>
+          <div className="form-control">
+            <label className="label cursor-pointer">Theme :
+              <span className="label-text mr-2">{currentTheme === 'light' ? 'Light' : 'Dark'}</span>
+              <input
+                type="checkbox"
+                className="toggle toggle-primary"
+                onChange={toggleTheme}
+                checked={currentTheme === 'dark'}
+              />
+            </label>
+          </div>
         </li>
         <li><a>Settings</a></li>
         <li><Link to={'/'}>Logout</Link></li>

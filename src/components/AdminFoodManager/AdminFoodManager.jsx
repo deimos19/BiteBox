@@ -39,7 +39,7 @@ const AdminFoodManager = () => {
 
   return (
     <div className="container mx-auto lg:px-40 py-8">
-      <div className='flex justify-between'>
+      <div className='flex justify-between' id='food'>
         <h2 className="text-2xl font-bold mb-6">Manage Food Items</h2>
         <div className="dropdown dropdown-end">
         <div tabIndex={0} role="button" className="btn btn-ghost hover:btn-primary m-1"><i class="bi bi-bag-plus-fill mr-1"></i>Add Food Item</div>

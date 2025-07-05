@@ -35,7 +35,7 @@ const Login = () => {
 
         <div className="text-center">
           <h2 className="text-3xl font-bold mb-4 text-yellow-500">Welcome Back to BiteBox!</h2>
-          <p className="text-gray-100 mb-4">
+          <p className="mb-4">
             Craving something delicious? Login and explore our wide variety of meals delivered fast and fresh.
           </p>
           <img src={BiteBox} alt="Food Illustration" className="rounded-lg mx-auto object-cover" />
