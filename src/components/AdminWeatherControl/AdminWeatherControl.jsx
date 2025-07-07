@@ -76,7 +76,7 @@ const AdminWeatherControl = () => {
           <p className="mb-4">Set weather alerts that affect delivery times:</p>
 
           <div className="flex flex-col md:flex-row gap-4 mb-4">
-            <label className={`btn ${weather === 'Sunny' ? 'btn-active bg-blue-700 text-white' : 'btn-active text-white'}`}>
+            <label className={`btn ${weather === 'Sunny' ? 'btn-active bg-blue-700 text-white' : 'btn-active'}`}>
               <input
                 type="radio"
                 name="weather"
@@ -87,7 +87,7 @@ const AdminWeatherControl = () => {
               ☀️ Sunny
             </label>
 
-            <label className={`btn ${weather === 'Cloudy' ? 'btn-active bg-blue-700 text-white' : 'btn-active text-white'}`}>
+            <label className={`btn ${weather === 'Cloudy' ? 'btn-active bg-blue-700 text-white' : 'btn-active'}`}>
               <input
                 type="radio"
                 name="weather"
@@ -98,7 +98,7 @@ const AdminWeatherControl = () => {
               ☁️ Cloudy
             </label>
 
-            <label className={`btn ${weather === 'Rainy' ? 'btn-active bg-blue-700 text-white' : 'btn-active text-white'}`}>
+            <label className={`btn ${weather === 'Rainy' ? 'btn-active bg-blue-700 text-white' : 'btn-active'}`}>
               <input
                 type="radio"
                 name="weather"
